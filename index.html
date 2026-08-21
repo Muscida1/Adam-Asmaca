@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        var kelimeler = ["KODLAMA","LAPTOP","KASA","KLAVYE","FARE","TELEFON"];
+        var rastgeleSayi = Math.floor(Math.random() * kelimeler.length);
+        var kelime = kelimeler[rastgeleSayi];
+        var kelimeUzunluk = kelime.length;
+        var bulunanKelime = "";
+        var hak = 7;
+
+        for(var i = 0; i < kelime.length; i++) {
+            bulunanKelime = bulunanKelime + "_";
+
+        }
+
+        while(hak > 0 && bulunanKelime != kelime) {
+            var harf = prompt("Kelime: " + bulunanKelime + "\nKelime Uzunluğu: " + kelimeUzunluk + "\nKalan hak: " + hak + "\n\n Bir Harf Gir:");
+            harf = harf.toUpperCase();
+            if(kelime.includes(harf)) {
+                var yeniKelime = "";
+                for(var i = 0; i < kelime.length; i++) {
+                    if(kelime.charAt(i) == harf) {
+                        yeniKelime = yeniKelime + harf
+                    }
+
+                    else {
+                        yeniKelime = yeniKelime + bulunanKelime.charAt(i);
+                    }
+                }
+
+                bulunanKelime = yeniKelime;
+                alert("Doğru Harf!");
+                
+            }
+ 
+            else {
+                    hak = hak - 1;
+                    alert("Yanlış Harf! Kalan Hak: " + hak);
+                }
+        }
+
+        if(bulunanKelime == kelime) {
+            alert("Tebrikler!\n" + "Kelimeyi Buldun: " + kelime);
+        }
+
+        else {
+            alert("Oyun Bitti! \n" + "Doğru Kelime: " + kelime);
+        }
+
+    </script>
+</body>
+</html>
